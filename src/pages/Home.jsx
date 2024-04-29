@@ -9,20 +9,20 @@ const Home = () => {
     fetchAllProducts();
   }, [fetchAllProducts]);
 
-  console.log(products);
+  // console.log(products);
   if (!products) {
     return <div>loading......</div>;
   }
 
   return (
-    <Box>
+    <Box >
       <Grid templateColumns="repeat(4,1fr)" gap={4}>
         {products.map((product) => (
-          <Link to={`/products/${product.handle}`} key={product.id}>
-            <Box _hover={{opacity:'80%'}} textAlign='center'>
-              <Image src={product.images[0].src} />
-              <Text>{product.title}</Text>
-              <Text>{product.variants[0].price.amount}</Text>
+          <Link to={`/products/${product.handle}`} key={product.id} >
+            <Box _hover={{opacity:'80%'}} textAlign='center' >
+              <Image src={product.images[0].src} maxH="240px"/>
+              <Text color='#1A4D2E' >{product.title}</Text>
+              <Text color='#4F6F52'>{product.variants[0].price.amount}</Text>
             </Box>
           </Link>
         ))}
