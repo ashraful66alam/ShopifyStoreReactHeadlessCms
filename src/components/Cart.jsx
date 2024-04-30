@@ -15,7 +15,8 @@ import {
   Text,
   Icon,
   Image,
-  Link
+  Link,
+  Box,
 } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 export default function Cart() {
@@ -30,9 +31,9 @@ export default function Cart() {
         <DrawerHeader>Your Shopping Cart</DrawerHeader>
 
         <DrawerBody>
-          {checkout.lineItems &&
+          {checkout.lineItems?.length ? (
             checkout.lineItems.map((item) => (
-              <Grid templateColumns="repeat(4,1fr)" key={item.id}>
+              <Grid templateColumns="repeat(4,1fr)" key={item.id} pb="35px">
                 {/* <Text>{item.title}</Text> */}
                 <Flex align="center" justify="center">
                   <CloseIcon
@@ -48,22 +49,31 @@ export default function Cart() {
                   <Image src={item.variant.image.src}></Image>
                 </Flex>
                 <Flex align="center" justify="center">
-                  <Text>{item.title}</Text>
+                  <Text textAlign="Center">{item.title}</Text>
                 </Flex>
                 <Flex align="center" justify="center">
-                  <Text>{item.variant.price.amount}</Text>
+                  <Text textAlign="Center">{item.variant.price.amount}</Text>
                 </Flex>
               </Grid>
-            ))}
+            ))
+          ) : (
+            <Box h="100%" w="100%">
+              <Flex h="100%" direction="column" align="center" justify="center">
+                <Text>Your Cart Is Empty!</Text>
+              </Flex>
+            </Box>
+          )}
         </DrawerBody>
 
-        <DrawerFooter>
-          <Button w="100%">
-            <Link w="100%" href={checkout.webUrl}>
-              Checkout
-            </Link>
-          </Button>
-        </DrawerFooter>
+        {checkout.lineItems?.length ? (
+          <DrawerFooter>
+            <Button w="100%">
+              <Link w="100%" href={checkout.webUrl}>
+                Checkout
+              </Link>
+            </Button>
+          </DrawerFooter>
+        ) : null}
       </DrawerContent>
     </Drawer>
   );

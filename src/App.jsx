@@ -9,6 +9,7 @@ import ProductPage from "./pages/ProductPage.jsx";
 import { Text } from "@chakra-ui/react";
 import Navbar from "./components/Navbar.jsx";
 import Cart from "./components/Cart.jsx";
+import NavMenu from "./components/NavMenu.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,10 +26,11 @@ function App() {
 
   return (
     <>
-      {/* <h1>React shopify store</h1> */}
-      <Navbar></Navbar>
       <Cart></Cart>
       <RouterProvider router={router}>
+        <Navbar></Navbar>
+        <NavMenu></NavMenu>
+
         {/* <Home/>
         <ProductPage></ProductPage> */}
       </RouterProvider>

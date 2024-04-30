@@ -28,12 +28,18 @@ class ShopProvider extends Component {
     const checkout = await client.checkout.create();
     localStorage.setItem("checkout_id", checkout.id);
     this.setState({ checkout: checkout });
+    console.log("Creating checkout");
+    console.log(this.state.checkout.id);
+
   };
 
-  fetchCheckout = (checkoutId) => {
-    client.checkout.fetch(checkoutId).then((checkout) => {
+  fetchCheckout = async (checkoutId) => {
+    await client.checkout.fetch(checkoutId).then((checkout) => {
       this.setState({ checkout: checkout });
     });
+    console.log(checkoutId);
+    console.log(this.state.checkout.id);
+
   };
 
   addItemToCheckout = async (variantId, quantity) => {
@@ -52,13 +58,14 @@ class ShopProvider extends Component {
     this.setState({
       checkout: checkout,
     });
+    // console.log(this.state.checkout);
 
     this.openCart();
   };
 
   removeLineItem = async (lineItemIdsToRemove) => {
     // Remove an item from the checkout
-    const checkout = client.checkout.removeLineItems(
+    const checkout = await client.checkout.removeLineItems(
       this.state.checkout.id,
       lineItemIdsToRemove
     );
@@ -85,10 +92,13 @@ class ShopProvider extends Component {
   };
   openCart = () => {
     this.setState({ isCartOpen: true });
-    console.log(this.state.checkout);
   };
-  closeMenu = () => {};
-  OpenMenu = () => {};
+  closeMenu = () => {
+    this.setState({ isMenuOpen: false });
+  };
+  OpenMenu = () => {
+    this.setState({ isMenuOpen: true });
+  };
 
   render() {
     // console.log(this.state.checkout);
