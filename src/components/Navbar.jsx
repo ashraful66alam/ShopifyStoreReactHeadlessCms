@@ -13,7 +13,6 @@ export default function Navbar() {
       direction="row"
       justify="space-between"
       p="1rem"
-      mb="1rem"
       align="center"
       w="100vw"
     >

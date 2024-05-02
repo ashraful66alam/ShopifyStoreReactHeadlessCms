@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { Box, Grid, Text, Image } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import NavMenu from "../components/NavMenu";
+import Footer from "../components/Footer";
+import Hero from "../components/Hero";
+import ImageWithText from "../components/ImageWithText";
+
 const Home = () => {
   const { fetchAllProducts, products } = useContext(ShopContext);
   useEffect(() => {
@@ -17,9 +21,9 @@ const Home = () => {
 
   return (
     <>
-      <Navbar></Navbar> 
+      <Navbar></Navbar>
       <NavMenu></NavMenu>
-
+      <Hero></Hero>
       <Box>
         <Grid templateColumns="repeat(4,1fr)" gap={4}>
           {products.map((product) => (
@@ -33,6 +37,10 @@ const Home = () => {
           ))}
         </Grid>
       </Box>
+      <ImageWithText reverse={true} image='/Broad1.jpg' heading="Ready" text='Hold the camera !' ></ImageWithText>
+      <ImageWithText reverse={false} image='/Broad2.jpg' heading="Steady" text="Get The Focus !" ></ImageWithText>
+      <ImageWithText reverse={true} image='/Broad3.jpg'heading="Go" text='Capture with perfection !' ></ImageWithText>
+      <Footer></Footer>
     </>
   );
 };

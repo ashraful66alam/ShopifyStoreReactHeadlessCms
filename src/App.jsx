@@ -10,6 +10,7 @@ import { Text } from "@chakra-ui/react";
 import Navbar from "./components/Navbar.jsx";
 import Cart from "./components/Cart.jsx";
 import NavMenu from "./components/NavMenu.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -33,8 +34,8 @@ function App() {
 
         {/* <Home/>
         <ProductPage></ProductPage> */}
+        <Footer></Footer>
       </RouterProvider>
-      <Text textAlign="Center">Footer</Text>
     </>
   );
 }
