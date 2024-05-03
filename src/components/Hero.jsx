@@ -19,6 +19,7 @@ function Hero() {
           objectPosition={["top", "center"]}
         ></Image>
         <Text
+          className="tracking-in-expand "
           position="absolute"
           bottom="15%"
           w="100%"
@@ -31,7 +32,18 @@ function Hero() {
           Welcome to Nocturnal
         </Text>
         <Center>
-          <Button position="absolute" bottom="10%" w="10rem" bgColor='#E8DFCA' _hover={{opacity:"50%", bgColor:'#1A4D2E' ,color:"#E8DFCA",border:"none"}}>
+          <Button
+            position="absolute"
+            bottom="10%"
+            w="10rem"
+            bgColor="#E8DFCA"
+            _hover={{
+              opacity: "50%",
+              bgColor: "#1A4D2E",
+              color: "#E8DFCA",
+              border: "none",
+            }}
+          >
             Shop Now
           </Button>
         </Center>
