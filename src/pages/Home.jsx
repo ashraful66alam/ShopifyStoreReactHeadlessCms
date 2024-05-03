@@ -31,7 +31,7 @@ const Home = () => {
           {products.map((product) => (
             <Link to={`/products/${product.handle}`} key={product.id}>
               <Box _hover={{ opacity: "80%" }} textAlign="center" position='relative'>
-                <Image src={product.images[0].src} maxH="240px" />
+                <Image src={product.images[0].src} maxH="240px" width='100%' objectFit='cover' />
                 <Text color="#1A4D2E" position='absolute' bottom="15%" w="100%" fontWeight='bold'>{product.title}</Text>
                 <Text color="#4F6F52" position='absolute' bottom="5%" w="100%">{product.variants[0].price.amount}</Text>
               </Box>
